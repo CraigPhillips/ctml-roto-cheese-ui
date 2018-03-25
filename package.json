@@ -1,0 +1,28 @@
+{
+  "name": "ctml-roto-cheese-ui",
+  "version": "0.1.0",
+  "description": "UI for presenting weekly scoring results for the CTML baseball league",
+  "homepage": "https://github.com/CraigPhillips/ctml-roto-cheese-ui#readme",
+  "bugs": {
+    "url": "https://github.com/CraigPhillips/ctml-roto-cheese-ui/issues"
+  },
+  "license": "MIT",
+  "author": "Craig Phillips",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CraigPhillips/ctml-roto-cheese-ui.git"
+  },
+  "scripts": {
+    "package": "webpack --config build/webpack.config.js",
+    "package-watch": "webpack --config build/webpack.config.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mithril": "^1.1.6"
+  },
+  "devDependencies": {
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
+  }
+}
