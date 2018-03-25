@@ -14,12 +14,15 @@
     "url": "git+https://github.com/CraigPhillips/ctml-roto-cheese-ui.git"
   },
   "scripts": {
+    "package": "webpack --config build/webpack.config.js",
+    "package-watch": "webpack --config build/webpack.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-
+    "mithril": "^1.1.6"
   },
   "devDependencies": {
-
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
   }
 }
