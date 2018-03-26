@@ -19,7 +19,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mithril": "^1.1.6"
+    "mithril": "^1.1.6",
+    "privatize": "github:CraigPhillips/privatize#develop"
   },
   "devDependencies": {
     "webpack": "^4.2.0",
