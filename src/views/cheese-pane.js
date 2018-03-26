@@ -6,8 +6,11 @@ class CheesePane {
     _(this).m = m;
   }
 
-  view() {
-    return _(this).m('h2', {}, 'CTML Roto Cheese');
+  view(context) {
+    const m = _(context.tag).m;
+    return m('#ctml-roto-cheese', [
+      m('h3', 'CTML Roto Cheese'),
+    ]);
   }
 };
 
