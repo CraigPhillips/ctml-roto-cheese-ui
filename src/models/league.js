@@ -1,31 +1,25 @@
-const _ = require('privatize')();
-const mithril = require('mithril');
+const m = require('mithril');
 
-class League {
-  constructor(m = mithril) {
-    _(this).m = m;
-    this.teams = [];
-  }
-
-  load() {
-    console.log('loading called');
-
-    return _(this).m.request({
+const League = {
+  load: () => {
+    return m.request({
       method: 'GET',
       url: 'data/teams.json',
     })
     .then((result) => {
-      this.currentWeek = result.currentWeek;
+      League.currentWeek = result.currentWeek;
+      League.teams = {};
       Object
         .keys(result)
         .filter(k => k !== 'currentWeek')
-        .forEach(k => { this.teams[k] = result[k]; });
-
-      console.log(this);
+        .forEach(k => { League.teams[k] = result[k]; });
     });
-  }
+  },
+
+  currentWeek: -1,
+  teams: {},
 }
 
 module.exports = {
-  League
+  League,
 };
