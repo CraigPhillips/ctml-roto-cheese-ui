@@ -8,27 +8,29 @@ const League = {
     })
     .then((result) => {
       League.currentWeek = result.currentWeek;
-      League.teams = {};
+      League.teams = [];
       Object
         .keys(result)
         .filter(k => k !== 'currentWeek')
-        .forEach(k => { League.teams[k] = result[k]; });
+        .forEach(k => { League.teams[parseInt(k)] = result[k]; });
     })
     .then(() => m.request({
       method: 'GET',
       url: `data/scores-week-${League.currentWeek}.json`,
     }))
     .then((result) => {
-      console.log(result);
       Object
         .keys(result)
         .filter(k => k !== 'weekNumber')
-        .forEach(k => { League.teams[k].scores = result[k]; });
+        .forEach(k => { League.teams[parseInt(k)].scores = result[k]; });
+
+      League.teams.sort((a, b) => a.scores.rank - b.scores.rank);
+      console.log(League.teams);
     });
   },
 
   currentWeek: -1,
-  teams: {},
+  teams: [],
 }
 
 module.exports = {

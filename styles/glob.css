@@ -1,0 +1,39 @@
+#ctml-roto-cheese {
+  width: 100%;
+}
+#ctml-roto-cheese > * {
+  margin: 0 auto;
+  width: 400px;
+}
+#ctml-roto-cheese h3 {
+  text-align: center;
+}
+
+.league-list {
+  list-style-type: none;
+  padding: 20px 0;
+}
+.league-list > li {
+  border: 1px solid gray;
+  border-bottom: none;
+  position: relative;
+  width: 100%;
+}
+.league-list > li:last-child {
+  border: 1px solid gray;
+}
+.league-list > li > * {
+  display: inline-block;
+  padding: 10px;
+}
+.league-list > li > .team-logo img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+}
+.league-list > li > .team-score {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}

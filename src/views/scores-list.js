@@ -6,8 +6,13 @@ const ScoresList = {
   oninit: League.load,
 
   view: () => {
-    return m('ol.league-list', Object.keys(League.teams).map((k) => {
-      return m('li', League.teams[k].name);
+    return m('ol.league-list', League.teams.map((team) => {
+      return m('li', [
+        m('.team-rank', team.scores.rank),
+        m('.team-logo', [m('img', { src: team.logo })]),
+        m('.team-name', team.name),
+        m('.team-score', team.scores.total),
+      ]);
     }));
   },
 };
