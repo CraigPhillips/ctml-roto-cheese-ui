@@ -10,7 +10,9 @@ const ScoresList = {
       return m('li', [
         m('.team-rank', team.scores.rank),
         m('.team-logo', [m('img', { src: team.logo })]),
-        m('.team-name', team.name),
+        m('.team-name', [
+          m('a', { href: team.url }, team.name),
+        ]),
         m('.team-score', team.scores.total),
       ]);
     }));
