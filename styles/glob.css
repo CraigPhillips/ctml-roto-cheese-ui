@@ -1,3 +1,5 @@
+body { overflow-y: scroll; }
+
 #ctml-roto-cheese {
   width: 100%;
 }
@@ -5,13 +7,19 @@
   margin: 0 auto;
   width: 400px;
 }
-#ctml-roto-cheese h3 {
+#ctml-roto-cheese h3, #ctml-roto-cheese h4, #ctml-roto-cheese h5 {
+  margin-bottom: 0;
   text-align: center;
+  padding: 0;
+}
+#ctml-roto-cheese h5 {
+  font-style: italic;
+  font-weight: normal;
 }
 
 .league-list {
   list-style-type: none;
-  padding: 20px 0;
+  padding: 0;
 }
 .league-list > li {
   border: 1px solid gray;
@@ -22,9 +30,12 @@
 .league-list > li:last-child {
   border: 1px solid gray;
 }
-.league-list > li > * {
+.league-list > li > *, .score-details > li > * {
   display: inline-block;
   padding: 10px;
+}
+.league-list > li > .team-rank {
+  width: 10px;
 }
 .league-list > li > .team-logo img {
   border-radius: 50%;
@@ -37,3 +48,27 @@
   right: 0;
   top: 10px;
 }
+
+button.detail-toggle {
+  background: transparent;
+  border-radius: 50%;
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+  color: gray;
+  cursor: pointer;
+  margin-left: 10px;
+  height: 25px;
+  width: 25px;
+}
+
+.score-details {
+  display: none !important;
+  list-style-type: none;
+  padding-top: 0 !important;
+  width: 100%;
+}
+.score-details.show { display: block !important; }
+.score-details li > * { padding: 4px; }
+.score-details .value { width: 100px; }
+.score-details .score { float: right; margin-right: 50px; }

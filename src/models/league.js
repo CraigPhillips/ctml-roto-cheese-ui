@@ -21,15 +21,16 @@ const League = {
     .then((result) => {
       Object
         .keys(result)
-        .filter(k => k !== 'weekNumber')
+        .filter(k => k !== 'weekNumber' && k !== 'timestamp')
         .forEach(k => { League.teams[parseInt(k)].scores = result[k]; });
 
       League.teams.sort((a, b) => a.scores.rank - b.scores.rank);
-      console.log(League.teams);
+      League.timestamp = result.timestamp;
+
+      setTimeout(League.load, 5000);
     });
   },
 
-  currentWeek: -1,
   teams: [],
 }
 
