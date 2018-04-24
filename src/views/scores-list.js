@@ -12,9 +12,19 @@ const ScoresList = {
   view: (vnode) => {
     const timestamp = League.timestamp ?
       (new Date(League.timestamp)).toLocaleString() : undefined;
+    const weeks = [];
+    for (let i = League.maxWeek; i > 0; i -= 1) weeks.push(i);
 
     return m('.scores-list', [
-      m('h4', League.currentWeek ? `Week ${League.currentWeek}` : ''),
+      m('select', { onchange: (e) => { ScoresList.weekSelected(e, League); } }, weeks.map((week) =>
+        m(
+          'option',
+          {
+            selected: week === parseInt(League.currentWeek) ? 'selected' : '',
+            value: week,
+          },
+          `Week ${week}`)
+      )),
       m('ol.league-list', League.teams.map((team) => {
         const cats = Object.keys(team.scores)
           .filter(k => typeof(team.scores[k]) === 'object');
@@ -32,7 +42,7 @@ const ScoresList = {
             m(
               'button.detail-toggle',
               {
-                onclick: (event) => {
+                onclick: () => {
                   vnode.state[detailsVisible] = !vnode.state[detailsVisible];
                 },
               },
@@ -54,6 +64,11 @@ const ScoresList = {
       })),
       m('h5', timestamp? `Last updated: ${timestamp}` : ''),
     ]);
+  },
+
+  weekSelected: (event, League) => {
+    document.location.href =
+      `?week=${event.target.options[event.target.selectedIndex].value}`;
   },
 };
 
