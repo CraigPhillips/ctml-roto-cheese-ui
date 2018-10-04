@@ -1,6 +1,6 @@
 {
   "name": "ctml-roto-cheese-ui",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "UI for presenting weekly scoring results for the CTML baseball league",
   "homepage": "https://github.com/CraigPhillips/ctml-roto-cheese-ui#readme",
   "bugs": {
