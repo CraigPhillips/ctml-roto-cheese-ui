@@ -1,3 +1,5 @@
 const m = require('mithril');
 
-m.render(document.body, 'cheese');
+const { CheesePane } = require('./views/cheese-pane');
+
+m.mount(document.body, CheesePane);
